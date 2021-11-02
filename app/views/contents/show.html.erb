@@ -1,0 +1,35 @@
+<%= link_to('Back', contents_path, class: 'back-link') %>
+
+<div class="contents show">
+	<h2>Show content</h2>
+	<table summary="content detail view">
+  <tr>
+    <th>Name</th>
+    <td><%= @content.name %></td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td><%= @content.description %></td>
+  </tr>
+  <!-- <tr>
+    <th>Visible?</th>
+    <td><%#= @content.visible ? 'true' : 'false' %></td>
+  </tr> -->
+  <tr>
+    <th>Certificate</th>
+    <td><%= @content.certificate %></td>
+  </tr>
+  <tr>
+    <th>Genre</th>
+    <td><%= @content.genre %></td>
+  </tr>
+  <tr>
+    <th>Created at</th>
+    <td><%= @content.created_at %></td>
+  </tr>
+  <tr>
+    <th>Updated at</th>
+    <td><%= @content.updated_at %></td>
+  </tr>
+</table>
+</div>

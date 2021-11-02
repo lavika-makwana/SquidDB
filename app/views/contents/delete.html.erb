@@ -1,0 +1,12 @@
+<%= link_to('Back', contents_path, class: 'back-link') %>
+
+<div class="contents delete">
+	<h2>Delete content</h2>
+	<%= form_for(@content, method: 'delete') do |form| %>
+		<p>Are you sure you want ot delete this content?</p>
+		<p class="reference-name"><%= form.object.name %></p>
+		<div class="form-buttons">
+			<%= form.submit('Delete content') %>
+		</div>
+	<% end %>
+</div>

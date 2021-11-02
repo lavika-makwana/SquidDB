@@ -1,0 +1,37 @@
+<div class='contents index'>
+	<h1>Listing contents</h1>
+	<%= link_to('Add new', new_content_path, class: 'action new') %>
+</div>
+
+<table class='listing' summary="content list">
+  <thead>
+    <tr class='header'>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Certificate</th>
+      <th>Genre</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contents.each do |content| %>
+      <tr>
+        <td><%= content.name %></td>
+        <!-- <td class="center"><%#= content.visible ? 'Yes' : 'No' %></td> -->
+        <td><%= content.description %></td>
+        <td><%= content.certificate %></td>
+        <td><%= content.genre %></td>
+        <td class="actions">
+          <%= link_to('show', content_path(content), class: 'action show') %>
+          <%= link_to('edit', edit_content_path(content), class: 'action edit') %>
+          <%= link_to('delete', delete_content_path(content), class: 'action delete') %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%#= link_to "New content", new_content_path %>
