@@ -7,6 +7,10 @@
   <%= form_for(@content) do |form| %>
     <table summary="content form fields">
       <tr>
+        <th>Type</th>
+        <td> <%= form.select :types, options_for_select(content_types), {}, {class: "form-control selectpicker"}  %></td>
+      </tr>
+      <tr>
         <th>Name</th>
         <td><%= form.text_field :name, required: true %> </td>
       </tr>

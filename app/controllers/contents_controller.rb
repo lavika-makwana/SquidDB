@@ -1,5 +1,7 @@
 class ContentsController < ApplicationController
 
+  before_action :set_type_to_content, only: [:create]
+
   def index
     @contents = Content.all
   end
@@ -9,6 +11,7 @@ class ContentsController < ApplicationController
   end
 
   def create
+    set_type_to_content
     @content = Content.new(content_params)
     if @content.save
       flash[:notice] = "content created successfully"
@@ -49,7 +52,13 @@ class ContentsController < ApplicationController
 
   private
 
+  def set_type_to_content
+    if content_params[:types].nil?
+      params[:content][:types] = params[:content][:name].parameterize.underscore
+    end
+  end
+
   def content_params
-    params.require(:content).permit(:name, :description, :certificate, :genre, :type, :with_seasons)
+    params.require(:content).permit(:name, :description, :certificate, :genre, :types, :with_seasons)
   end
 end
