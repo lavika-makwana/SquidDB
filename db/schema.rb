@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_02_105252) do
+ActiveRecord::Schema.define(version: 2021_11_02_132854) do
 
   create_table "contents", charset: "latin1", force: :cascade do |t|
     t.string "name"
@@ -23,4 +23,24 @@ ActiveRecord::Schema.define(version: 2021_11_02_105252) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "episodes", charset: "latin1", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "season_id", null: false
+    t.index ["season_id"], name: "index_episodes_on_season_id"
+  end
+
+  create_table "seasons", charset: "latin1", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "certificate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "content_id"
+    t.index ["content_id"], name: "index_seasons_on_content_id"
+  end
+
+  add_foreign_key "episodes", "seasons"
 end
