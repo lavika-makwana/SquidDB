@@ -5,7 +5,11 @@
     <table summary="content form fields">
       <tr>
         <th>Type</th>
-        <td> <%= form.select :types, options_for_select(Content.content_types_list), {}, {class: "form-control selectpicker"}  %></td>
+        <td><%=   form.select(:types, Content.content_types_list + ['Add a new type'], {:include_blank => 'Please select a type', class: "type"}) %></td>
+      </tr>
+      <tr>
+        <th>Type</th>
+        <td><%= form.text_field :types, required: true %> </td>
       </tr>
       <tr>
         <th>Name</th>
