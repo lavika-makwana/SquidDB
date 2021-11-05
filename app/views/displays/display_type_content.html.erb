@@ -1,0 +1,25 @@
+<table class='listing' summary="content list">
+  <thead>
+    <tr class='header'>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Certificate</th>
+      <th>Genre</th>
+    </tr>
+  </thead>
+
+  <tbody >
+    <% @type_lists.each do |content| %>
+      <tr>
+        <td><%= content.name %></td>
+        <td><%= content.description %></td>
+        <td><%= content.certificate %></td>
+        <td><%= content.genre %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%#= link_to "New content", new_content_path %>

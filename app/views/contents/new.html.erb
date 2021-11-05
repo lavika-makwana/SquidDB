@@ -1,6 +1,3 @@
-<%#= error_messages_for(@content) %
-<%= link_to('Back', contents_path, class: 'back-link') %>
-
 <div>
   <h2>Create a Content</h2>
 
@@ -8,7 +5,7 @@
     <table summary="content form fields">
       <tr>
         <th>Type</th>
-        <td> <%= form.select :types, options_for_select(content_types), {}, {class: "form-control selectpicker"}  %></td>
+        <td> <%= form.select :types, options_for_select(Content.content_types_list), {}, {class: "form-control selectpicker"}  %></td>
       </tr>
       <tr>
         <th>Name</th>
