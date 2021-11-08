@@ -1,11 +1,12 @@
-<h2>Squid DB</h2>
+<div>
+	<h2>Squid DB</h2>
 
-<% @content_types.each do |a| %>
-	<ul>
-	  <li><%= link_to(a, list_contents_path(a.id), class: 'new content') %></li>
-	</ul>
-<% end %>
+	<% @content_types.each do |a| %>
+		<ul>
+		  <li><%= link_to(a, list_contents_path(a), class: 'new content') %></li>
+		</ul>
+	<% end %>
 
-<%= link_to('Create a New Content', new_content_path, class: 'new content') %>
-
+	<%= link_to('Create a New Content', new_content_path, class: 'new content') %>
+</div>
 

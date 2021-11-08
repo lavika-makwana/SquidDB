@@ -1,0 +1,25 @@
+<div class='nested-fields', id='seasons-nested-form'>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :certificate %>
+    <%= f.text_field :certificate %>
+  </div>
+  <%= link_to_remove_association "remove season", f %>
+
+  <h3>Episodes</h3>
+    <div id='episodes'>
+      <%= f.fields_for :episodes do |episode| %>
+        <%= render 'episode_fields', :f => episode %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'add episode', f, :episodes %>
+      </div>
+    </div>
+</div>

@@ -7,6 +7,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
+require("@nathanvda/cocoon")
 require("./custom_js.js")
 
 window.jQuery = $;

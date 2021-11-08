@@ -4,12 +4,12 @@
   <%= form_for(@content) do |form| %>
     <table summary="content form fields">
       <tr>
-        <th>Type</th>
-        <td><%=   form.select(:types, Content.content_types_list + ['Add a new type'], {:include_blank => 'Please select a type', class: "type"}) %></td>
+        <th></th>
+        <td><%= form.select(:types, Content.content_types_list + ['Add a new type'], {:include_blank => 'Please select a type', class: "types"}) %></td>
       </tr>
-      <tr>
+      <tr class="add-type">
         <th>Type</th>
-        <td><%= form.text_field :types, required: true %> </td>
+        <td><%= form.text_field :types %> </td>
       </tr>
       <tr>
         <th>Name</th>
@@ -29,8 +29,21 @@
       </tr>
       <tr>
         <th>Has Seasons</th>
-        <td><%= form.check_box :with_seasons %></td>
+        <td><%= form.check_box :with_seasons, {class: "has_season"} %></td>
       </tr>
+      <tr>
+        <td>
+          <h3>Seasons</h3>
+          <div id='seasons'>
+            <%= form.fields_for :seasons do |season| %>
+              <%= render 'season_fields', :form => season %>
+            <% end %>
+            <div class='links'>
+              <%= link_to_add_association 'add season', form, :seasons %>
+            </div>
+          </div>
+        </td>
+      <tr>
     </table>
     <div class="form-buttons">
       <%= form.submit('Create content') %>
