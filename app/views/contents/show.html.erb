@@ -11,10 +11,6 @@
     <th>Description</th>
     <td><%= @content.description %></td>
   </tr>
-  <!-- <tr>
-    <th>Visible?</th>
-    <td><%#= @content.visible ? 'true' : 'false' %></td>
-  </tr> -->
   <tr>
     <th>Certificate</th>
     <td><%= @content.certificate %></td>
@@ -32,4 +28,44 @@
     <td><%= @content.updated_at %></td>
   </tr>
 </table>
+  <!-- Displaying season details -->
+  <p class="attr-heading">Season Details</p>
+  <% if @content.seasons.present? %>
+    <% @content.seasons.each do |season| %>
+      <table class="table-show">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Certificate</th>
+        </tr>
+        <tr>
+          <td class="attributes"><%= season.name %></td>
+          <td class="attributes"><%= season.description %></td>
+          <td class="attributes"><%= season.certificate %></td>
+        </tr>
+      </table>
+    
+
+    <!-- Displaying Episodes Details -->
+    <% if season.episodes.present? %>
+    <p class="attr-heading">Episodes Details</p>
+      <% season.episodes.each do |episode| %>
+        <table class="table-show">
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Certificate</th>
+          </tr>
+          <tr>
+            <td class="attributes"><%= episode.name %></td>
+            <td class="attributes"><%= episode.description %></td>
+          </tr>
+        </table>
+    <% end %>
+  <% end %>
+<% end %>
+<% end %>
 </div>
+
+
+

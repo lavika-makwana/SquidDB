@@ -1,6 +1,8 @@
 $( document ).ready(function() {
 
   $(".add-type").hide();
+  $("#season-area").hide();
+  
 
   $('select#content_types').on('input', function() {
     if(this.value == 'Add a new type')
@@ -12,9 +14,8 @@ $( document ).ready(function() {
     }
   });
 
-  $( "#content_with_seasons" ).click(function() {
-    $( "#seasons-nested-form" ).toggle();
+  $( ".has_season" ).click(function() {
+    $( "#season-area" ).toggle();
   });
   
-
 });

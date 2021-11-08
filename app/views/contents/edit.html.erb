@@ -1,32 +1,9 @@
-<%#= error_messages_for(@content) %>
-<%= link_to('Back', contents_path, class: 'back-link') %>
-
 <div>
   <h2>Edit a Content</h2>
 
   <%= form_for(@content) do |form| %>
-    <table summary="content form fields">
-      <tr>
-        <th>Name</th>
-        <td><%= form.text_field :name %></td>
-      </tr>
-      <tr>
-        <th>Description</th>
-        <td><%= form.text_field :description %></td>
-      </tr>
-      <tr>
-        <th>Certificate</th>
-        <td><%= form.text_field :certificate %></td>
-      </tr>
-      <tr>
-        <th>Genre</th>
-        <td><%= form.text_field :genre %></td>
-      </tr>
-      <tr>
-        <th>Has Seasons</th>
-        <td><%= form.check_box :with_seasons %></td>
-      </tr>
-    </table>
+    
+    <%= render(partial: 'form', locals: {form: form}) %>
     <div class="form-buttons">
       <%= form.submit('Update content') %>
     </div>
