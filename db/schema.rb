@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_02_135640) do
+ActiveRecord::Schema.define(version: 2021_11_08_053944) do
 
   create_table "contents", charset: "latin1", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.string "certificate"
     t.string "genre"
-    t.string "types"
+    t.string "content_type"
     t.boolean "with_seasons"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

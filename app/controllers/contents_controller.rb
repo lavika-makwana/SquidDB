@@ -45,7 +45,7 @@ class ContentsController < ApplicationController
 
   def content_params
     params.require(:content).permit(:name, :description, :certificate, :genre,
-                                    :types, :with_seasons,
+                                    :content_type, :with_seasons,
                                     seasons_attributes: [:id, :name, :description, :certificate,
                                     episodes_attributes: [:id, :name, :description]])
   end

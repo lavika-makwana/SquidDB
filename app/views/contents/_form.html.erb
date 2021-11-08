@@ -1,11 +1,11 @@
 <table summary="content form fields">
   <tr>
     <th></th>
-    <td><%= form.select :types, Content.content_types_list + ['Add a new type'], {:include_blank => 'Please select a type', class: "types"} %></td>
+    <td><%= form.select :content_type, Content.content_types_list + ['Add a new type'], {:include_blank => 'Please select a type', class: "types"} %></td>
   </tr>
   <tr class="add-type">
     <th>Type</th>
-    <td><%= form.text_field :types %> </td>
+    <td><%= form.text_field :content_type %> </td>
   </tr>
   <tr>
     <th>Name</th>
